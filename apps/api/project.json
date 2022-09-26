@@ -53,6 +53,28 @@
         "jestConfig": "apps/api/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "migration-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "typeorm-ts-node-commonjs -d ./src/common/configs/ormconfig.ts migration:generate --pretty src/migrations/init"
+          }
+        ],
+        "cwd": "apps/api"
+      }
+    },
+    "migration-run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "typeorm-ts-node-commonjs -d ./src/common/configs/ormconfig.ts migration:run"
+          }
+        ],
+        "cwd": "apps/api"
+      }
     }
   },
   "tags": []
